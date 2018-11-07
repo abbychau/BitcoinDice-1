@@ -1,0 +1,5 @@
+{
+    "require": {
+        "joungkyun/mysql-extension-wrapper": "^1.0"
+    }
+}

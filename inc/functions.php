@@ -5,6 +5,7 @@
 
  
 */
+require_once dirname(__FILE__).'/../vendor/autoload.php';
 
 if (!isset($included)) exit();     
 
@@ -41,7 +42,7 @@ function generateServerSeed() {
   $rand_nr=mt_rand(0.01*100,99.99*100)/100;
   if (mt_rand(1,2)==2) $pre_rand=($rand_nr-0.01);
   else $pre_rand=($rand_nr+0.01);
-  $str=generateHash(26).'-'.((double)(($pre_rand+0.001).mt_rand(1,99999999999999999999999999999)));
+  $str=generateHash(26).'-'.((double)(($pre_rand+0.001).mt_rand(1,mt_getrandmax())));
   return $str;
 }
 
@@ -54,7 +55,8 @@ function newPlayer($wallet) {
   $alias_i=mysql_fetch_array(mysql_query("SELECT `autoalias_increment` AS `data` FROM `system` LIMIT 1"));
   $alias_i=$alias_i['data'];
   mysql_query("UPDATE `system` SET `autoalias_increment`=`autoalias_increment`+1 LIMIT 1");
-  mysql_query("INSERT INTO `players` (`hash`,`alias`,`time_last_active`,`server_seed`) VALUES ('$hash','".$alias.$alias_i."',NOW(),'".generateServerSeed()."')");
+  mysql_query("INSERT INTO `players` (`hash`,`alias`,`time_last_active`,`server_seed`) VALUES ('$hash','". $alias . $alias_i . "',NOW(),'". generateServerSeed() . "')"
+  );
   header('Location: ./?unique='.$hash.'# Do Not Share This URL!');
   exit();
 }

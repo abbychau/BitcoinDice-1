@@ -82,7 +82,7 @@ if (isset($_POST['s_title'])) {
     </tr>
     <tr>
       <td>Transaction fee</td>
-      <td><input type="text" name="txfee" value="<?php $infofee=$wallet->getinfo(); echo $infofee['paytxfee']; ?>"> <?php echo $settings['currency_sign']; ?></td>
+      <td><input type="text" name="txfee" value="<?php $infofee=$wallet->getwalletinfo(); echo $infofee['paytxfee']; ?>"> <?php echo $settings['currency_sign']; ?></td>
       <td><small><i>Transaction fee to <?php echo $settings['currency']; ?> network.</i></small></td>
     </tr>
     <tr>

@@ -5,6 +5,7 @@
 
  
 */
+require_once '../vendor/autoload.php';
 
 if (!isset($included_)) exit();
 

@@ -5,7 +5,7 @@
 
  
 */
-
+require_once '../vendor/autoload.php';
 
 if (isset($_GET['checkCons'])) {
   if (@!mysql_connect($_POST['db_host'],$_POST['db_user'],$_POST['db_pass']) || @!mysql_select_db($_POST['db_name'])) {
@@ -220,11 +220,11 @@ if ($step==3 && (!is_writable('../inc/db-conf.php') || !is_writable('../inc/driv
                 </tr>
                 <tr>
                   <td>Currency:</td>
-                  <td><input type="text" name="s_cur" value="Bitcoin" disabled></td>
+                  <td><input type="text" name="s_cur" value="Bitcoin"></td>
                 </tr>
                 <tr>
                   <td>Currency sign:</td>
-                  <td><input type="text" name="s_cur_sign" value="BTC" disabled></td>
+                  <td><input type="text" name="s_cur_sign" value="BTC"></td>
                 </tr>
               </table>
             </form>

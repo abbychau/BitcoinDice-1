@@ -10,7 +10,7 @@ if (!isset($included)) exit();
 
 if (isset($_POST['nwa_user']) && isset($_POST['nwa_pass'])) {
   if (!empty($_POST['nwa_user']) && !empty($_POST['nwa_pass'])) {
-    mysql_query("INSERT INTO `admins` (`username`,`passwd`) VALUES ('".prot($_POST['nwa_user'])."','".md5($_POST['nwa_pass'])."')");
+    $ret = mysql_query("INSERT INTO `admins` (`username`,`passwd`) VALUES ('".prot($_POST['nwa_user'])."','".md5($_POST['nwa_pass'])."')");
     echo '<div class="zpravagreen"><b>Success:</b> Admin was successfuly created!</div>';
   }
   else echo '<div class="zpravared"><b>Error:</b> One of required fields stayed empty!</div>';

@@ -6,6 +6,7 @@
  
 */
 
+require_once 'vendor/autoload.php';
 
 header('X-Frame-Options: DENY'); 
 
